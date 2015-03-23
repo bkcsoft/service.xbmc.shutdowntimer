@@ -39,7 +39,7 @@ class TimerDialogCallback:
 				percent = increment * secs
 
 			remaining_display = ('shutting down in %s seconds') % secs_left
-			dialog.update(percent, text, remaining_display)
+			dialog.update(percent, self.text, remaining_display)
 
 			secs += 1
 
