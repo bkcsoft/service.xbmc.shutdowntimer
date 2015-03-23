@@ -14,7 +14,7 @@ class TimerDialogCallback:
 		pi.set_mode(self.gpio, pigpio.INPUT)
 		pi.set_pull_up_down(self.gpio, pigpio.PUD_UP)
 
-		self.cb = self.pi.callback(self.gpio, pigpio.RISING_EDGE, self._pulse)
+		self.cb = self.pi.callback(self.gpio, pigpio.FALLING_EDGE, self._pulse)
 	
 	def _pulse(self, gpio, level, tick):
 		dialog = xbmcgui.DialogProgress()
