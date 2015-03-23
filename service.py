@@ -1,6 +1,7 @@
 import xbmc, xbmcgui
 import pigpio
 import time
+from os import system
 
 class TimerDialogCallback:
 	def __init__(self, pi, gpio, timeout, text, callback):
@@ -43,11 +44,14 @@ class TimerDialogCallback:
 
 			secs += 1
 
+		remaining_display = 'shutting down'
+		dialog.update(percent, self.text, remaining_display)
 		if cancelled == False:
 			self.callback()
 
 def my_func():
-	xbmc.executebuiltin('Shutdown()')
+	#xbmc.executebuiltin('Shutdown()')
+	system('sudo shutdown -h now');
 
 if __name__ == '__main__':
 	pi = pigpio.pi()
