@@ -10,6 +10,7 @@ class TimerDialogCallback:
 		self.timeout = timeout
 		self.text = text
 		self.callback = callback
+		selt._last_tick = 0
 
 		pi.set_mode(self.gpio, pigpio.INPUT)
 		pi.set_pull_up_down(self.gpio, pigpio.PUD_UP)
@@ -17,6 +18,9 @@ class TimerDialogCallback:
 		self.cb = self.pi.callback(self.gpio, pigpio.FALLING_EDGE, self._pulse)
 	
 	def _pulse(self, gpio, level, tick):
+		if tick - self._last_tick < 100:
+			return
+		self._last_tick = tick;
 		dialog = xbmcgui.DialogProgress()
 		dialog.create(self.text)
 
