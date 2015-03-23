@@ -54,7 +54,8 @@ def my_func():
 	system('sudo shutdown -h now');
 
 if __name__ == '__main__':
-	time.sleep(10)
+	while system('pidof pigpiod') != 0:
+		time.sleep(1)
 	pi = pigpio.pi()
 	timer = TimerDialogCallback(pi, 10, 10, "Shutting Down", my_func)
 
