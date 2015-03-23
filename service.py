@@ -43,11 +43,7 @@ class TimerDialogCallback:
 
 			secs += 1
 
-		if cancelled == True:     
-			self.log_notice('countdown cancelled')
-			return False
-		else:
-			self.log_debug('countdown finished waiting')
+		if cancelled == False:
 			self.callback()
 
 def my_func():
