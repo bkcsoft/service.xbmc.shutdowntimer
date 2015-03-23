@@ -20,10 +20,10 @@ class TimerDialogCallback:
 		dialog.create(self.text)
 
 		secs = 0
-		increment = 100 / time_to_wait
+		increment = 100 / self.timout
 
 		cancelled = False
-		while secs <= time_to_wait:
+		while secs <= self.timeout:
 
 			if (dialog.iscanceled()):
 				cancelled = True
@@ -32,7 +32,7 @@ class TimerDialogCallback:
 			if secs != 0: 
 				xbmc.sleep(1000)
 
-			secs_left = time_to_wait - secs
+			secs_left = self.timeout - secs
 			if secs_left == 0: 
 				percent = 100
 			else: 
