@@ -18,7 +18,7 @@ class TimerDialogCallback:
 		self.cb = self.pi.callback(self.gpio, pigpio.FALLING_EDGE, self._pulse)
 	
 	def _pulse(self, gpio, level, tick):
-		if tick - self._last_tick < 100000:
+		if tick - self._last_tick < 1000000:
 			return
 		self._last_tick = tick;
 		dialog = xbmcgui.DialogProgress()
