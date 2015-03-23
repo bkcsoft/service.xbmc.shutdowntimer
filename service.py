@@ -20,7 +20,7 @@ class TimerDialogCallback:
 		dialog.create(self.text)
 
 		secs = 0
-		increment = 100 / self.timout
+		increment = 100 / self.timeout
 
 		cancelled = False
 		while secs <= self.timeout:
