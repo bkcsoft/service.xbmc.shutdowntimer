@@ -56,6 +56,7 @@ def my_func():
 if __name__ == '__main__':
 	while system('pidof pigpiod') != 0:
 		time.sleep(1)
+	time.sleep(1) # wait for pigpio to get a socket-connection...
 	pi = pigpio.pi()
 	timer = TimerDialogCallback(pi, 10, 10, "Shutting Down", my_func)
 
