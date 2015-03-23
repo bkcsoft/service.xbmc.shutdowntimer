@@ -55,4 +55,7 @@ def my_func():
 
 if __name__ == '__main__':
 	pi = pigpio.pi()
-	timer = TimerDialogCallback(pi, 10, 10, "Shutting Down", my_func);
+	timer = TimerDialogCallback(pi, 10, 10, "Shutting Down", my_func)
+
+	while 1:
+		time.sleep(1)
